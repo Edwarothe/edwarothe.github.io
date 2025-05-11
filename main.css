@@ -49,10 +49,10 @@ body {
 }
 
 .hero {
-  background: url('bg.jpg') center/cover no-repeat;
-  text-align: center;
-  padding: 4rem 2rem;
+  background: linear-gradient(to right, #0f172a, #334155);
   color: white;
+  padding: 4rem 2rem;
+  text-align: center;
 }
 
 .about-section {
