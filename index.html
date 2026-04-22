@@ -1,93 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Ed Warothe, showcasing data analysis, ML, and database projects." />
-  <title>Ed Warothe | Data Analyst Portfolio</title>
-  <link rel="stylesheet" href="main.css">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle('dark-mode');
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edward | Data Analyst Portfolio</title>
+    <!-- Tailwind CSS 4 CDN -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-background: #031427;
+            --color-coral: #fc7c79;
+            --color-surface-container: #102034;
+            --color-surface-container-low: #0b1c30;
+            --color-surface-container-high: #1b2b3f;
+            --color-surface-container-highest: #26364a;
+            --font-sans: "Inter", sans-serif;
+            --font-mono: "Space Grotesk", monospace;
+        }
+
+        .data-grid-overlay {
+            background-image: radial-gradient(rgba(77, 142, 255, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--color-background); color: #d3e4fe; font-family: var(--font-sans); }
+    </style>
 </head>
+<body class="antialiased">
 
-<body>
-  <header class="navbar">
-    <h1><i class="fas fa-database"></i> Ed Warothe</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button onclick="toggleTheme()" class="theme-toggle">🌙</button></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 border-b border-slate-800 bg-[#031427]/80 backdrop-blur-md">
+        <div class="max-w-[1200px] mx-auto flex justify-between items-center px-6 py-4">
+            <div class="flex items-center gap-2">
+                <i data-lucide="layout-dashboard" class="w-6 h-6 text-coral"></i>
+                <span class="text-xl font-bold tracking-tighter text-white">DataPortfolio</span>
+            </div>
+            <button class="px-5 py-2 bg-white/5 text-[#adc6ff] border border-white/10 text-xs font-bold uppercase tracking-wider rounded-lg hover:bg-[#adc6ff] hover:text-[#002e6a] transition-all">
+                View Resume
+            </button>
+        </div>
+    </header>
 
-  <section class="hero" style="background: url('bg.jpg') center/cover no-repeat; color: white;">
-    <h2>Welcome!</h2>
-    <p>I'm Edward, a data analyst passionate about helping organizations uncover value in their data.</p>
-  </section>
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-[700px] flex flex-col justify-center px-6 py-24 overflow-hidden data-grid-overlay">
+            <div class="max-w-[1200px] mx-auto w-full">
+                <div class="inline-block px-4 py-1.5 mb-8 border border-coral/30 rounded-full bg-coral/10">
+                    <span class="font-mono text-xs text-coral uppercase tracking-widest font-bold">Available for new opportunities</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 max-w-4xl leading-[1.1] tracking-tight">
+                    Welcome! I'm Edward, a <span class="text-coral">data analyst</span> passionate about helping organizations uncover value in their data.
+                </h1>
 
-  <main>
-    <section id="about" class="about-section">
-      <h2><i class="fas fa-user"></i> About Me</h2>
-      <p>I specialize in data analysis, machine learning, and database design. This portfolio highlights my recent work and experiments.</p>
-    </section>
+                <div class="flex flex-wrap gap-4 mt-8">
+                    <a href="#projects" class="px-8 py-4 bg-coral text-white font-sans text-sm font-bold uppercase tracking-widest rounded-lg hover:brightness-110 transition-all shadow-lg shadow-coral/20">
+                        View My Projects
+                    </a>
+                    <a href="#contact" class="px-8 py-4 border border-white/10 text-white font-sans text-sm font-bold uppercase tracking-widest rounded-lg hover:bg-white/5 transition-all">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+            <div class="absolute -right-20 top-1/2 -translate-y-1/2 opacity-20 pointer-events-none hidden lg:block">
+                <div class="w-[400px] h-[400px] bg-[#4d8eff] rounded-full blur-[120px]"></div>
+            </div>
+        </section>
 
-    <section id="projects" class="projects-section">
-      <h2><i class="fas fa-chart-line"></i> Data Projects</h2>
-<!--  <h2><i class="fas fa-project-diagram"></i> Selected Projects</h2>  -->
-      <div class="projects-grid">
-        <article class="project-card">
-          <img src="pic01.png" alt="Forecasting Project">
-          <h3>Forecasting Shocks in Consumer Demand</h3>
-          <p>Used Python and machine learning on Ecuadorian retail data from Corporación Favorita.</p>
-        </article>
-        <article class="project-card">
-          <img src="images/time-series.png" alt="Time Series Project">
-          <h3>A Primer on Time Series Forecasting</h3>
-          <p>Introduces the basics of time series forecasting techniques.</p>
-        </article>
-        <article class="project-card">
-          <img src="images/large-dataset.png" alt="Large Dataset Project">
-          <h3>How to Analyse Large Datasets</h3>
-          <p>Practical techniques for handling and analyzing large data volumes efficiently.</p>
-        </article>
-        <article class="project-card">
-          <img src="images/gis-map.png" alt="GIS Project">
-          <h3>GIS Analysis of Kenyan Education Data</h3>
-          <p>Mapped 2019 KNBS census data to explore spatial disparities in education.</p>
-        </article>
-        <article class="project-card">
-          <img src="images/statistics.png" alt="Statistics Project">
-          <h3>Validating Statistical Tests and Experiments</h3>
-          <p>Discusses principles of experimental design and statistical test validation.</p>
-        </article>
-        <article class="project-card">
-          <img src="images/nlp-docs.png" alt="NLP Project">
-          <h3>NLP for Document Analysis</h3>
-          <p>Applied natural language processing to extract sentiment and insights from text.</p>
-        </article>
-      </div>
-    </section>
-  </main>
+        <!-- About Section -->
+        <section id="about" class="bg-surface-container-low py-24 px-6 border-y border-slate-800">
+            <div class="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative aspect-square rounded-2xl overflow-hidden border border-white/5">
+                    <img alt="Workspace" class="w-full h-full object-cover grayscale" src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1000&auto=format&fit=crop">
+                </div>
+                <div>
+                    <h2 class="font-mono text-xs text-coral uppercase font-bold tracking-[0.2em] mb-4">Core Competencies</h2>
+                    <h3 class="text-4xl font-bold text-white mb-8 tracking-tight">Expertise in Turning Raw Information into Strategy</h3>
+                    <p class="text-lg text-slate-400 mb-10 leading-relaxed">
+                        I specialize in data analysis, machine learning, and database design. This portfolio highlights my recent work and experiments, showcasing a blend of technical rigor and business intuition.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="p-6 bg-surface-container rounded-xl border-l-2 border-coral">
+                            <p class="font-mono text-xs text-slate-500 uppercase font-bold tracking-widest mb-2">01. ANALYSIS</p>
+                            <p class="text-white font-medium">Python, R, SQL</p>
+                        </div>
+                        <div class="p-6 bg-surface-container rounded-xl border-l-2 border-slate-600">
+                            <p class="font-mono text-xs text-slate-500 uppercase font-bold tracking-widest mb-2">02. VISUALS</p>
+                            <p class="text-white font-medium">Tableau, PowerBI</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <footer id="contact">
-    <h2><i class="fas fa-envelope"></i> Contact</h2>
-    <p>Email: <a href="mailto:edwarothe@example.com">edwarothe@example.com</a></p>
-    <p>
-      <a href="https://github.com/edwarothe">GitHub</a> |
-      <a href="https://linkedin.com/in/edwarothe">LinkedIn</a>
-    </p>
-    <p>&copy; Ed Warothe | 2025</p>
-  </footer>
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 px-6">
+            <div class="max-w-[1200px] mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+                    <div>
+                        <h2 class="text-4xl font-bold text-white tracking-tight">Data Projects</h2>
+                        <div class="w-14 h-1 mt-4 bg-coral"></div>
+                    </div>
+                    <span class="font-mono text-xs text-slate-500 uppercase tracking-widest font-bold">Selected Works 2023-2024</span>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Item -->
+                    <div class="group bg-surface-container-high border border-white/5 p-8 rounded-2xl transition-all hover:border-coral/50">
+                        <div class="flex justify-between items-start mb-10">
+                            <i data-lucide="trending-up" class="w-10 h-10 text-coral"></i>
+                            <div class="flex gap-2">
+                                <span class="bg-coral/10 text-coral font-mono text-[10px] px-2 py-0.5 rounded border border-coral/30 font-bold uppercase">ML</span>
+                            </div>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-4 group-hover:text-coral tracking-tight uppercase">Forecasting Consumer Demand</h4>
+                        <p class="text-slate-400 mb-10 leading-relaxed">Used Python and ML on retail data to identify volatility patterns and supply chain disruptions.</p>
+                        <a href="#" class="flex items-center gap-2 font-mono text-xs font-bold text-coral tracking-widest">VIEW STUDY <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                    <!-- Repeat for other projects -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 px-6 bg-surface-container border-y border-slate-800">
+            <div class="max-w-[1200px] mx-auto text-center">
+                <h2 class="text-5xl font-bold text-white mb-6">Let's build something data-driven</h2>
+                <div class="flex flex-col md:flex-row gap-6 justify-center mt-16">
+                    <a href="mailto:ed@example.com" class="flex items-center gap-6 p-8 bg-surface-container-highest rounded-xl border border-white/5 hover:border-coral transition-all flex-1 text-left group">
+                        <div class="p-4 rounded-lg bg-surface-container text-coral group-hover:bg-coral group-hover:text-white transition-all">
+                            <i data-lucide="mail" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-mono text-slate-500 uppercase font-bold tracking-widest">EMAIL ME</p>
+                            <p class="text-white font-medium">ed@example.com</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 px-6 bg-[#031427] text-center border-t border-slate-900">
+        <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold">
+            &copy; 2024 DATA ANALYST PORTFOLIO. BUILT WITH PRECISION.
+        </p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
-
 </html>
